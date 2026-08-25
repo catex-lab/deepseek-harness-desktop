@@ -44,6 +44,12 @@ pnpm tauri build
 
 The production installer is produced under `src-tauri/target/release/bundle/`.
 
+## Screenshots
+
+![DeepSeek Harness Desktop — main interface](docs/screenshots/dsh.png)
+
+*Main interface: workspace sidebar, model selector, and input prompt.*
+
 ## Repository contents
 
 Build artifacts and large binaries are intentionally excluded from version control via
@@ -109,6 +115,12 @@ pnpm tauri build
 ```
 
 构建出的安装包位于 `src-tauri/target/release/bundle/` 目录下。
+
+## 截图
+
+![DeepSeek Harness Desktop 主界面](docs/screenshots/dsh.png)
+
+*主界面：工作区侧边栏、模型选择器与输入框。*
 
 ## 仓库内容说明
 
