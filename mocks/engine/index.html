@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Workspace · Project Alpha</title></head>
+<body>
+<style>
+html,body{margin:0;font-family:"Inter",system-ui,sans-serif;background:#fafafa;color:#1d1d1f}
+.header{padding:48px 64px 24px;border-bottom:1px solid #e8e8ed}
+h1{font-size:32px;font-weight:600;margin:0 0 4px;letter-spacing:-0.02em}
+.sub{font-size:14px;color:#6e6e73}
+.content{padding:32px 64px}
+.card{background:#fff;border-radius:10px;box-shadow:0 1px 3px rgba(0,0,0,0.06);padding:20px 24px;margin-bottom:12px}
+.card h3{margin:0 0 6px;font-size:15px;font-weight:500}
+.card p{margin:0;font-size:13px;color:#6e6e73;line-height:1.5}
+.theme-btn{position:fixed;bottom:24px;right:24px;padding:10px 16px;border:1px solid #e8e8ed;border-radius:8px;background:#fff;color:#1d1d1f;font-size:12px;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,0.06)}
+body[data-ds-dark-theme]{background:#1a1a1e;color:#e6e6ea}
+body[data-ds-dark-theme] .card{background:#24242a;box-shadow:0 1px 3px rgba(0,0,0,0.3)}
+body[data-ds-dark-theme] .card h3{color:#e6e6ea}
+body[data-ds-dark-theme] .card p{color:#a1a1aa}
+body[data-ds-dark-theme] .header{border-bottom-color:#2e2e34}
+body[data-ds-dark-theme] .sub{color:#a1a1aa}
+body[data-ds-dark-theme] .theme-btn{background:#24242a;border-color:#2e2e34;color:#e6e6ea}
+</style>
+<div class="header">
+  <h1>Workspace · Project Alpha</h1>
+  <div class="sub">DeepSeek Harness v0.1.0-rc.7 · mock engine page</div>
+</div>
+<div class="content">
+  <div class="card"><h3>Goals</h3><p>No active goals. Use /goal to create one.</p></div>
+  <div class="card"><h3>Recent Sessions</h3><p>Last 24 sessions · latest: "Fix titlebar theme sync" · 2h ago</p></div>
+  <div class="card"><h3>Plugins</h3><p>3 plugins installed · bash, fs, workflow</p></div>
+  <div class="card"><h3>Metrics</h3><p>47 goals completed · 312 tasks · 142,839 tokens this month</p></div>
+</div>
+<button class="theme-btn" onclick="document.body.toggleAttribute('data-ds-dark-theme')">🌗 Toggle Theme</button>
+</body></html>

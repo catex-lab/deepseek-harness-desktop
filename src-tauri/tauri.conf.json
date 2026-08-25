@@ -1,0 +1,30 @@
+{
+  "productName": "DeepSeek Harness",
+  "version": "0.1.0",
+  "identifier": "com.deepseek.harness.desktop",
+  "build": {
+    "devUrl": "http://localhost:3080",
+    "beforeDevCommand": "echo ready",
+    "beforeBuildCommand": "echo ready",
+    "frontendDist": "../dist"
+  },
+  "app": {
+    "withGlobalTauri": true,
+    "windows": []
+  },
+    "bundle": {
+    "active": true,
+    "icon": [
+      "icons/icon-light.ico",
+      "icons/icon-dark.ico",
+      "icons/icon256.png"
+    ],
+    "resources": ["assets/loading.html", "resources/engine"],
+    "targets": ["msi"],
+    "windows": {
+      "webviewInstallMode": {
+        "type": "downloadBootstrapper"
+      }
+    }
+  }
+}
