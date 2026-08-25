@@ -65,3 +65,68 @@ through its own settings, which are stored on the local machine at runtime.
 ## License
 
 No license file is included yet. Add a `LICENSE` before distributing.
+
+---
+
+# DeepSeek Harness Desktop（中文）
+
+基于 [Tauri 2](https://v2.tauri.app) 构建的 [DeepSeek Harness](https://github.com/deepseek-ai)（`@deepseek-ai/dsh`）桌面外壳。
+
+本仓库将 DeepSeek Harness 引擎（Node.js 运行时 + `@deepseek-ai/dsh` 相关包）封装进一个
+Tauri 应用中，为 Harness 提供原生桌面体验——系统托盘、原生 WebView 以及安装包。
+
+## 架构
+
+- `src-tauri/` — Rust/Tauri 应用外壳（产品名 **DeepSeek Harness**，标识符 `com.deepseek.harness.desktop`）。
+- `src-tauri/resources/engine/` — 内置的 Node.js 引擎与 Harness 包。其中的大型二进制文件已被
+  git 忽略，并通过下方的辅助脚本重新获取。
+- `src-tauri/assets/` — 加载/启动界面与主题监听脚本。
+- 根目录脚本（`fetch-pkgs.mjs`、`fetch-missing.mjs`、`extract-tgz.py`）— 从 npm  registry
+  下载并解包 `@deepseek-ai/*` 引擎包。
+
+## 环境要求
+
+- Node.js（>= 18）与 [pnpm](https://pnpm.io)
+- Rust（stable）与 Cargo
+- Tauri 2 平台依赖：WebView2（Windows）以及平台构建工具（Windows SDK / C++ 生成工具）
+- Python 3（供 `extract-tgz.py` 解包引擎压缩包）
+
+## 快速开始
+
+```bash
+# 1. 安装 JS 依赖
+pnpm install
+
+# 2. 拉取 DeepSeek Harness 引擎包到 node_modules
+node fetch-pkgs.mjs        # 拉取 @deepseek-ai/dsh 及相关包
+node fetch-missing.mjs     # 补齐其他所需包
+
+# 3. 开发模式运行
+pnpm tauri dev
+
+# 4. 构建生产安装包（Windows 下为 MSI）
+pnpm tauri build
+```
+
+构建出的安装包位于 `src-tauri/target/release/bundle/` 目录下。
+
+## 仓库内容说明
+
+构建产物与大型二进制文件已通过 `.gitignore` 有意排除在版本控制之外：
+
+- `node_modules/`、`target/`、`dist/`
+- `*.tgz`、`*.zip`
+- `portable/`、`DeepSeek-Harness-portable/`
+- `src-tauri/resources/engine/node.exe` 及其他引擎二进制文件
+
+引擎运行环境可通过上述脚本重新获取，因此全新克隆的仓库无需提交大型二进制也能重新构建。
+**本仓库不追踪任何密钥、私密信息或 `.env` 文件。**
+
+## 配置
+
+Tauri 配置位于 `src-tauri/tauri.conf.json`。Harness 引擎通过其自身设置进行配置，相关设置保存在
+本机运行时目录中。
+
+## 许可证
+
+目前未包含许可证文件。若打算分发，请先添加 `LICENSE`。
